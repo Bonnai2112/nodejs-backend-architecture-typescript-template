@@ -21,10 +21,5 @@ describe('ApiResponse class test', () => {
             expect(successResponse.getMessage()).toEqual(SUCCESS_REPONSE_MESSAGE);
             expect(typeof successResponse.send).toEqual('function');
         })
-
-        it('should send a valid response', () => {
-            const res: Response
-            expect(successResponse.send(res))
-        })
     })
 })
