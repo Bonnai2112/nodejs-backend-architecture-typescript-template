@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/bonnai.djicko/Projects/nodejs-backend-architecture-typescript-template/logs/.a29331e6b160d656c1d293eb7a6759e39edcb406-audit.json",
+    "files": [
+        {
+            "date": 1690018404688,
+            "name": "/Users/bonnai.djicko/Projects/nodejs-backend-architecture-typescript-template/logs/2023-07-22.log",
+            "hash": "890f561f8cc887e3e09d2a7e1a96f13a49331602e75f5f89b22e4bb3a1ced45b"
+        }
+    ],
+    "hashType": "sha256"
+}

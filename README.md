@@ -1,92 +1,361 @@
-# typescript backend architecture
+# Node.js Backend Architecture Typescript Template Project
+### A complete project to init a nodejs backend in typescript project
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/janishar/nodejs-backend-architecture-typescript/master/addons/github_assets/cover-nodejs-backend.png">
+</p>
+<br>
+
+# Project Highlights 
+1. Node.js
+2. Express.js
+3. Typescript
+4. Mongoose
+5. Redis
+6. Mongodb
+7. Joi
+8. Unit Tests & Integration Tests
+9. Docker
+10. JWT
+
+# About The Project
+This project is designed for a production ready environment. It can handle the scale and complexity of a very demanding application.
+
+It is suitable for Web Apps, Mobile Apps, and other API services.
+
+# About The Author
+I [Bonnai Nouh DJICKO](https://twitter.com/bonnaii) have created this project using my 7 years of experience in tech industry working for top companies. I enjoy sharing my learnings with the community. You can connect with me here:
+* [Twitter](https://twitter.com/bonnaii)
+* [LinkedIn](https://www.linkedin.com/in/bonnai/)
+
+[Learn from My YouTube Channel](https://www.youtube.com/@bonnainouhdjicko643)
+
+# Project Instructions
+The main focus will be to create a maintainable and highly testable architecture.
+<br>
+Following are the features of this project:
+* **This backend is written in Typescript**: The type safety at build time and having intellisense for it in the IDE like vscode is unparalleled to productivity.
+* **Separation of concern principle**: Each component has been given a particular role. The role of the components is mutually exclusive. This makes the project easy to be unit tested.
+* **Feature encapsulation**: The files or components that are related to a particular feature have been grouped unless those components are required in multiple features. This enhances the ability to share code across projects.
+* **Centralised Error handling**: I have created a framework where all the errors are handled centrally. This reduces the ambiguity in the development when the project grows larger.
+* **Centralised Response handling**: Similar to Error handling we have a response handling framework. This makes it very convenient to apply a common API response pattern.
+* **Mongodb is used through Mongoose**: Mongodb fits very well to the node.js application. Being NoSQL, fast, and scalable makes it ideal for modern web applications.
+* **Redis Memcache**: I have used the redis server for caching the items which does not change frequently. It will boost the performance of our system.
+* **Async execution**: I have used async/await for the promises and made sure to use the non-blocking version of all the functions with few exceptions.
+* **Docker compose has been configured**: I have created the Dockerfile to provide the easy deployability without any setup and configurations. 
+* **Unit test is favored**: The tests have been written to test the functions and routes without the need of the database server. Integration tests has also been done but the unit test is favored.
+* **A pure backend project**: I have experienced that when a backend is developed clubbed with a frontend then in the future it becomes really difficult to scale. We would want to create a separate backend project that servers many websites and mobile apps.
+
+> I have also open source a complete blogging website working on this backend project: [Goto Repository](TODO)
+The repository [**React.js Isomorphic Web Application Architecture**] has a complete React.js web application implemented for a blogging platform which is using this project as its API server.
+
+## 3RE Architecture: Router, RouteHandler, ResponseHandler, ErrorHandler
+<p align="center">
+    <img src="https://raw.githubusercontent.com/janishar/nodejs-backend-architecture-typescript/master/addons/github_assets/3RE.png">
+</p>
+<br>
+
+## Project Outline: Blogging Platform
+<p align="center">
+    <img src="https://raw.githubusercontent.com/janishar/nodejs-backend-architecture-typescript/master/addons/github_assets/project-outline.png">
+</p>
+<br>
+
+## Request-Response Handling Schematic Diagram
+<p align="center">
+    <img src="https://raw.githubusercontent.com/janishar/nodejs-backend-architecture-typescript/master/addons/github_assets/api-structure.png">
+</p>
+<br>
+
+## Learn the concepts used in this project
+* [Design Node.js Backend Architecture like a Pro](https://janisharali.com/blog/design-node-js-backend-architecture-like-a-pro)
+* [The video guide to build and run this project](https://youtu.be/t7blRxqPIMs)
+* [Implement JSON Web Token (JWT) Authentication using AccessToken and RefreshToken](https://janisharali.com/blog/implement-json-web-token-jwt-authentication-using-access-token-and-refresh-token)
+* [TypeScript Tutorial For Beginners](https://afteracademy.com/blog/typescript-tutorial-for-beginners)
+* [From JavaScript to TypeScript](https://afteracademy.com/blog/from-javascript-to-typescript)
 
 
+## You can find the complete API documentation [here](https://documenter.getpostman.com/view/1552895/2s8Z6u4a6N)
+<a href="https://documenter.getpostman.com/view/1552895/2s8Z6u4a6N" target="_blank">
+    <img src="https://raw.githubusercontent.com/afteracademy/nodejs-backend-architecture-typescript/master/addons/github_assets/api-doc-button.png" width="200" height="60"/>
+</a>
 
-## Getting started
+## How to build and run this project
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+* Install using Docker Compose [**Recommended Method**] 
+    * Clone this repo.
+    * Make a copy of **.env.example** file to **.env**.
+    * Make a copy of **keys/private.pem.example** file to **keys/private.pem**.
+    * Make a copy of **keys/public.pem.example** file to **keys/public.pem**.
+    * Make a copy of **tests/.env.test.example** file to **tests/.env.test**.
+    * Install Docker and Docker Compose. [Find Instructions Here](https://docs.docker.com/install/).
+    * Execute `docker-compose up -d` in terminal from the repo directory.
+    * You will be able to access the api from http://localhost:3000
+    * *If having any issue* then make sure 3000 port is not occupied else provide a different port in **.env** file.
+    * *If having any issue* then make sure 27017 port is not occupied else provide a different port in **.env** file.
+ * Run The Tests
+    * Install node.js and npm on your local machine.
+    * From the root of the project executes in terminal `npm install`.
+    * *Use the latest version of node on the local machine if the build fails*.
+    * To run the tests execute `npm test`.
+ * Install Without Docker [**2nd Method**]
+    * Install MongoDB on your local.
+    * Do steps 1 to 5 as listed for **Install using Docker Compose**.
+    * Do steps 1 to 3 as listed for **Run The Tests**.
+    * Create users in MongoDB and seed the data taking reference from the **addons/init-mongo.js**
+    * Change the `DB_HOST` to `localhost` in **.env** and **tests/.env.test** files.
+    * Execute `npm start` and You will be able to access the API from http://localhost:3000
+    * To run the tests execute `npm test`.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+  * Postman APIs Here: 
+    [addons/postman](https://github.com/janishar/nodejs-backend-architecture-typescript/tree/master/addons/postman)
+  
+  ## Learn Backend Development From Our Videos
+  * [Introduction to Web Backend Development for Beginners](https://youtu.be/SikmqyFocKQ)
+  * [Backend System Design for Startups](https://youtube.com/playlist?list=PLuppOTn4pNYeAn-ioA-Meec5I8pQK_gU5)
+  * [Practical Javascript for Beginners](https://youtube.com/playlist?list=PLuppOTn4pNYdowBb05yG2I8wAmHiW7vze)
+  
+ ## Project Directory Structure
+ ```
+├── .vscode
+│   ├── settings.json
+│   ├── tasks.json
+│   └── launch.json
+├── .templates
+├── src
+│   ├── server.ts
+│   ├── app.ts
+│   ├── config.ts
+│   ├── auth
+│   │   ├── apikey.ts
+│   │   ├── authUtils.ts
+│   │   ├── authentication.ts
+│   │   ├── authorization.ts
+│   │   └── schema.ts
+│   ├── core
+│   │   ├── ApiError.ts
+│   │   ├── ApiResponse.ts
+│   │   ├── JWT.ts
+│   │   ├── Logger.ts
+│   │   └── utils.ts
+│   ├── cache
+│   │   ├── index.ts
+│   │   ├── keys.ts
+│   │   ├── query.ts
+│   │   └── repository
+│   │       ├── BlogCache.ts
+│   │       └── BlogsCache.ts
+│   ├── database
+│   │   ├── index.ts
+│   │   ├── model
+│   │   │   ├── ApiKey.ts
+│   │   │   ├── Blog.ts
+│   │   │   ├── Keystore.ts
+│   │   │   ├── Role.ts
+│   │   │   └── User.ts
+│   │   └── repository
+│   │       ├── ApiKeyRepo.ts
+│   │       ├── BlogRepo.ts
+│   │       ├── KeystoreRepo.ts
+│   │       ├── RoleRepo.ts
+│   │       └── UserRepo.ts
+│   ├── helpers
+│   │   ├── asyncHandler.ts
+│   │   ├── permission.ts
+│   │   ├── role.ts
+│   │   ├── security.ts
+│   │   ├── utils.ts
+│   │   └── validator.ts
+│   ├── routes
+│   │   ├── access
+│   │   │   ├── credential.ts
+│   │   │   ├── login.ts
+│   │   │   ├── logout.ts
+│   │   │   ├── schema.ts
+│   │   │   ├── signup.ts
+│   │   │   ├── token.ts
+│   │   │   └── utils.ts
+│   │   ├── blog
+│   │   │   ├── editor.ts
+│   │   │   ├── index.ts
+│   │   │   ├── schema.ts
+│   │   │   └── writer.ts
+│   │   ├── blogs
+│   │   │   ├── index.ts
+│   │   │   └── schema.ts
+│   │   ├── index.ts
+│   │   └── profile
+│   │       ├── schema.ts
+│   │       └── user.ts
+│   └── types
+│       └── app-request.d.ts
+├── tests
+│   ├── auth
+│   │   ├── apikey
+│   │   │   ├── mock.ts
+│   │   │   └── unit.test.ts
+│   │   ├── authUtils
+│   │   │   ├── mock.ts
+│   │   │   └── unit.test.ts
+│   │   ├── authentication
+│   │   │   ├── mock.ts
+│   │   │   └── unit.test.ts
+│   │   └── authorization
+│   │       ├── mock.ts
+│   │       └── unit.test.ts
+│   ├── core
+│   │   └── jwt
+│   │       ├── mock.ts
+│   │       └── unit.test.ts
+│   ├── cache
+│   │   └── mock.ts
+│   ├── database
+│   │   └── mock.ts
+│   ├── routes
+│   │   ├── access
+│   │   │   ├── login
+│   │   │   │   ├── integration.test.ts
+│   │   │   │   ├── mock.ts
+│   │   │   │   └── unit.test.ts
+│   │   │   └── signup
+│   │   │       ├── mock.ts
+│   │   │       └── unit.test.ts
+│   │   └── blog
+│   │       ├── index
+│   │       │   ├── mock.ts
+│   │       │   └── unit.test.ts
+│   │       └── writer
+│   │           ├── mock.ts
+│   │           └── unit.test.ts
+│   ├── .env.test
+│   └── setup.ts
+├── addons
+│   └── init-mongo.js
+├── keys
+│   ├── private.pem
+│   └── public.pem
+├── .env
+├── .gitignore
+├── .dockerignore
+├── .eslintrc
+├── .eslintignore
+├── .prettierrc
+├── .prettierignore
+├── .travis.yml
+├── Dockerfile
+├── docker-compose.yml
+├── package-lock.json
+├── package.json
+├── jest.config.js
+└── tsconfig.json
+ ```
+ 
+ ## Directory Traversal for Signup API call
+ `/src → server.ts → app.ts → /routes/index.ts → /auth/apikey.ts → schema.ts → /helpers/validator.ts → asyncHandler.ts → /routes/access/signup.ts → schema.ts → /helpers/validator.ts → asyncHandler.ts → /database/repository/UserRepo.ts → /database/model/User.ts → /core/ApiResponses.ts`
+ 
+ ## API Examples
+* Signup
+    * Method and Headers
+    ```
+    POST /signup/basic HTTP/1.1
+    Host: localhost:3000
+    x-api-key: GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj
+    Content-Type: application/json
+    ```
+    * Request Body
+    ```json
+    {
+        "name" : "Janishar Ali",
+        "email": "ali@github.com",
+        "password": "changeit",
+        "profilePicUrl": "https://avatars1.githubusercontent.com/u/11065002?s=460&u=1e8e42bda7e6f579a2b216767b2ed986619bbf78&v=4"
+    }
+    ```
+    * Response Body: 200
+    ```json
+    {
+      "statusCode": "10000",
+      "message": "Signup Successful",
+      "data": {
+        "user": {
+          "_id": "63a19e5ba2730d1599d46c0b",
+          "name": "Janishar Ali",
+          "roles": [
+             {
+               "_id": "63a197b39e07f859826e6626",
+               "code": "LEARNER",
+               "status": true
+             }
+            ],
+          "profilePicUrl": "https://avatars1.githubusercontent.com/u/11065002?s=460&u=1e8e42bda7e6f579a2b216767b2ed986619bbf78&v=4"
+        },
+        "tokens": {
+          "accessToken": "some_token",
+          "refreshToken": "some_token"
+        }
+      }
+    }
+    ```
+    * Response Body: 400
+    ```json
+    {
+      "statusCode": "10001",
+      "message": "Bad Parameters"
+    }
+    ```
+* Profile Private
+    * Method and Headers
+    ```
+    GET /profile/my HTTP/1.1
+    Host: localhost:3000
+    x-api-key: GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj
+    Content-Type: application/json
+    Authorization: Bearer <your_token_received_from_signup_or_login>
+    ```
+    * Response Body: 200
+    ```json
+    {
+      "statusCode": "10000",
+      "message": "success",
+      "data": {
+        "name": "Janishar Ali Anwar",
+        "profilePicUrl": "https://avatars1.githubusercontent.com/u/11065002?s=460&u=1e8e42bda7e6f579a2b216767b2ed986619bbf78&v=4",
+        "roles": [
+          {
+            "_id": "5e7b8acad7aded2407e078d7",
+            "code": "LEARNER"
+          },
+          {
+            "_id": "5e7b8c22d347fc2407c564a6",
+            "code": "WRITER"
+          },
+          {
+            "_id": "5e7b8c2ad347fc2407c564a7",
+            "code": "EDITOR"
+          }
+        ]
+      }
+    }
+    ```
 
-## Add your files
+### Find this project useful ? :heart:
+* Support it by clicking the :star: button on the upper right of this page. :v:
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
+### License
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/cetic-soft/typescript-backend-architecture.git
-git branch -M main
-git push -uf origin main
+   Copyright (C) 2022 JANISHAR ALI ANWAR
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
 ```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.com/cetic-soft/typescript-backend-architecture/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+     
+ 
